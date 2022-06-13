@@ -6,7 +6,7 @@
 
 ```html
 <video width="100%" height="100%" controls="controls">
-  <source src="play_sample.mp4" type="video/mp4">
+  <source src="/assets/play_sample.mp4" type="video/mp4">
 </video>
 ```
 
