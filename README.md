@@ -4,7 +4,7 @@
 >
 > https://en.wikipedia.org/wiki/Pac-Man.  
 
-```
+```html
 <img width="80%" src=https://user-images.githubusercontent.com/62505827/173348766-c8f66965-245b-4e90-b219-acd7ada56587.mp4/>
 ```
 
