@@ -4,10 +4,8 @@
 >
 > https://en.wikipedia.org/wiki/Pac-Man.  
 
-```html
-<video width="100%" height="100%" controls="controls">
-  <source src="/assets/play_sample.mp4" type="video/mp4">
-</video>
+```
+<img width="80%" src=https://user-images.githubusercontent.com/62505827/173348766-c8f66965-245b-4e90-b219-acd7ada56587.mp4/>
 ```
 
 1. 개요
