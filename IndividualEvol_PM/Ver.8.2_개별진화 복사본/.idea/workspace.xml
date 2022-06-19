@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="914ed85f-11aa-49b6-a2b9-bf52d4e69925" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1cn4htbGAqm9y09vT7oAvWRzMvf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/evolution_test.py" />
+  </component>
+  <component name="RunManager">
+    <configuration name="evolution_test" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Ver.8.1_개별진화" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\gabri_000\AppData\Local\Programs\Python\Python37-32\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/evolution_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="914ed85f-11aa-49b6-a2b9-bf52d4e69925" name="Default Changelist" comment="" />
+      <created>1591151146020</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591151146020</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591151663735">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.683@0.0.1280.683" timestamp="1591151663735" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1591151662798">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.683@0.0.1280.683" timestamp="1591151662798" />
+    <state width="1259" height="389" key="GridCell.Tab.0.bottom" timestamp="1591151781555">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1259" height="389" key="GridCell.Tab.0.bottom/0.0.1280.683@0.0.1280.683" timestamp="1591151781555" />
+    <state width="1259" height="389" key="GridCell.Tab.0.center" timestamp="1591151781555">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1259" height="389" key="GridCell.Tab.0.center/0.0.1280.683@0.0.1280.683" timestamp="1591151781555" />
+    <state width="1259" height="389" key="GridCell.Tab.0.left" timestamp="1591151781555">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1259" height="389" key="GridCell.Tab.0.left/0.0.1280.683@0.0.1280.683" timestamp="1591151781555" />
+    <state width="1259" height="389" key="GridCell.Tab.0.right" timestamp="1591151781555">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1259" height="389" key="GridCell.Tab.0.right/0.0.1280.683@0.0.1280.683" timestamp="1591151781555" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1591151621059">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.683@0.0.1280.683" timestamp="1591151621059" />
+  </component>
+</project>
