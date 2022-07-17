@@ -8,7 +8,7 @@ from red_ghost import *
 from green_ghost import *
 from blue_ghost import *
 from genome_player import *
-from pink_ghost import *
+from AI_ghost import *
 
 pygame.init()
 vec = pygame.math.Vector2
@@ -17,10 +17,10 @@ icon = pygame.image.load('images/icon.png')
 pygame.display.set_icon(icon)
 pygame.display.set_caption("Pac-Man")
 
-RANDOM_START_POS =False
+RANDOM_START_POS = False
 
 class Game:
-    def __init__(self,Player,genome,GreenGhost,RedGhost,PinkGhost,BlueGhost):
+    def __init__(self,Player,PlayerGenome,GhostGenome,GreenGhost,RedGhost,PinkGhost,BlueGhost):
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
         self.running = True
@@ -31,14 +31,14 @@ class Game:
         self.aisle = []
         self.coins = []
         self.ghost_house = []
-
+        self.player_genome = PlayerGenome
+        self.ghost_genome = GhostGenome
         # if RANDOM_START_POS:
         #     PLAYER_START_POS = set_new_pos()
-        self.player = Player(self, PLAYER_START_POS,PlAYER_SPEED, genome )
-        self.player.fitness = genome
+        self.player = Player(self, PLAYER_START_POS,PLAYER_SPEED, PlayerGenome)
         self.green_ghost = GreenGhost(self, GREEN_GHOST_START_POS, GREEN_GHOST_SPEED)
         self.red_ghost = RedGhost(self, RED_GHOST_START_POS, RED_GHOST_SPEED)
-        self.pink_ghost = PinkGhost(self, PINK_GHOST_START_POS, PINK_GHOST_SPEED)
+        self.pink_ghost = PinkGhost(self, PINK_GHOST_START_POS, PINK_GHOST_SPEED, GhostGenome)
         self.blue_ghost = BlueGhost(self, BLUE_GHOST_START_POS, BLUE_GHOST_SPEED)
         self.load()
         self.fps_after_start = 0
@@ -51,7 +51,6 @@ class Game:
                     self.player.fitness += PLAYER_FIT_timeout
                 break
             elif self.terminate:
-                #print('~~Terminate! Fitness: %s~~' %self.player.fitness)
                 break
             elif self.scene == 'intro':
                 self.get_intro_events()
@@ -60,7 +59,7 @@ class Game:
                 self.get_play_events()
                 self.update_play_scene()
                 self.draw_play_scene()
-                self.play_time = self.fps_after_start
+                # self.play_time = self.fps_after_start
             elif self.scene == 'game over':
                 self.get_game_over_events()
                 self.draw_game_over_scene()
@@ -70,7 +69,7 @@ class Game:
             self.fps_after_start += 1
             self.clock.tick(FPS)
 
-        return self.player.fitness
+        return self.player.fitness, self.pink_ghost.fitness
         pygame.quit()
         sys.exit()
 
@@ -223,27 +222,30 @@ class Game:
 
         if self.player.grid_pos in ghosts_pos:
             self.player.fitness += PLAYER_FIT_bump
+            if self.player.grid_pos == self.pink_ghost.grid_pos:
+                self.pink_ghost.fitness += GHOST_FIT_dir_bump
+            #else:
+                #self.pink_ghost.fitness += GHOST_FIT_indir_bump
             return True
         return False
+
 
     def lose_life(self):
         self.freeze_obj()
         self.player.lives -= 1
-
         if self.player.lives == 0:
             self.scene = 'game over'
             return
-
         # pygame.time.delay(1000)
         self.erase_live()
         self.put_obj_back()
         if self.door_is_closed() == True:
             self.open_the_door()
+        self.play_time += self.fps_after_start
         self.fps_after_start = 0
 
     def clear_stage(self):
         if len(self.coins) <= 0:
-            self.pink_ghost.fitness += GHOST_FIT_clear_stage
             return True
         return False
 
@@ -254,6 +256,7 @@ class Game:
             self.open_the_door()
         self.stage += 1
         pygame.time.delay(1000)
+        self.play_time += self.fps_after_start
         self.fps_after_start = 0
 
     def draw_play_scene(self):
@@ -282,7 +285,8 @@ class Game:
 
     def erase_live(self):
         gap = TOTAL_LIVES - self.player.lives
-        self.screen.fill(BLACK, rect=(LIVE_START_POS_X + (37 * gap), LIVE_START_POS_Y + 25, LIVE_START_POS_X + (37 * gap) + 25, LIVE_START_POS_Y + 25))
+        self.screen.fill(BLACK, rect=(
+        LIVE_START_POS_X + (37 * gap), LIVE_START_POS_Y + 25, LIVE_START_POS_X + (37 * gap) + 25, LIVE_START_POS_Y + 25))
 
 ########################### GAME OVER FUNCTIONS ################################
 
@@ -290,7 +294,7 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
-            #if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            # if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             self.restart()
 
     def draw_game_over_scene(self):
@@ -299,18 +303,18 @@ class Game:
         pygame.display.update()
 
     def restart(self):
-        PLAYER_START_POS,GREEN_GHOST_START_POS,RED_GHOST_START_POS,PINK_GHOST_START_POS,BLUE_GHOST_START_POS = vec(1,29), vec(12,13),vec(13,13),vec(14,13),vec(15,13)
+        PLAYER_START_POS, GREEN_GHOST_START_POS, RED_GHOST_START_POS, PINK_GHOST_START_POS, BLUE_GHOST_START_POS = vec(1, 29), vec(12, 13), vec(13, 13), vec(14, 13), vec(15, 13)
         self.stage = 1
         self.player.lives = 3
         self.coins = []
-        #self.fill_up_coins()
+        # self.fill_up_coins()
         self.put_obj_back()
         if self.door_is_closed() == True:
             self.open_the_door()
         self.fps_after_start = 0
         self.terminate = True
-        self.scene = 'intro' # self.scene = 'play'
+        self.scene = 'intro'  # self.scene = 'play'
 
 if __name__ == '__main__':
-    game = Game(Player,p_genome,GreenGhost,RedGhost,PinkGhost,BlueGhost)
+    game = Game(Player,GreenGhost,RedGhost,PinkGhost,BlueGhost)
     game.run()
